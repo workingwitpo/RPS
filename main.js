@@ -37,7 +37,7 @@ function playRound(playerSelection, computerSelection){
         }
     }
 
-    function game(){
+    /*function game(){
         let playerScore = 0
         let computerScore = 0
         for (let i = 0; i < 5; i++) {
@@ -53,6 +53,44 @@ function playRound(playerSelection, computerSelection){
         }
         console.log(playerScore);
         console.log(computerScore);
-    }
+    } */
 
-game()
+let roundCounter = 0;
+
+const result = document.createElement('p');
+result.classList.add('result');
+const display = document.querySelector('#display');
+display.appendChild(result);
+
+const rockButton = document.createElement('button');
+rockButton.textContent = "ROCK";
+rockButton.addEventListener('click',function(){
+    const results = (playRound('rock',getComputerChoice()));
+    result.innerHTML = results;
+});
+
+
+const paperButton = document.createElement('button');
+paperButton.textContent = "PAPER";
+paperButton.addEventListener('click',function(){
+    const results = (playRound('paper',getComputerChoice()));
+    result.innerHTML = results;
+});
+
+const scissorButton = document.createElement('button');
+scissorButton.textContent = "SCISSORS";
+scissorButton.addEventListener('click',function(){
+    const results = (playRound('scissors',getComputerChoice()));
+    result.innerHTML = results;  
+});
+
+
+
+
+const buttons = document.querySelector('#buttons');
+buttons.appendChild(rockButton);
+buttons.appendChild(paperButton);
+buttons.appendChild(scissorButton);
+
+
+
